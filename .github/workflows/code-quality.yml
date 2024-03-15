@@ -19,19 +19,17 @@ jobs:
       with:
         node-version: 18
 
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v3
-      with:
-        version: 8
+    - name: Setup bun
+      uses: oven-sh/setup-bun@v1
 
     - name: Installing dependencies 📦
-      run: pnpm i
+      run: bun i
 
     - name: Linting code 🔧
-      run: pnpm lint
+      run: bun lint
 
     - name: Checking code formatting 📝
-      run: pnpm format:check
+      run: bun format:check
 
     - name: Conventional Commits 🔒
       uses: webiny/action-conventional-commits@v1.1.0
