@@ -1,8 +1,10 @@
-import { AuthLayout } from '@/components/auth/AuthLayout'
-import { PAGES_URL } from '@/config/pages-url.config'
 import Link from 'next/link'
 
-export const Home = () => (
+import { AuthLayout } from '@/components/auth/AuthLayout'
+
+import { PAGES_URL } from '@/config/pages-url.config'
+
+const Home = () => (
   <AuthLayout>
     <h1 className='mb-[14px] text-fs-28-fw-600 text-primaryLight tablet:text-fs-40'>
       Welcome to the app!
