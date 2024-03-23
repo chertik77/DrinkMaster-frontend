@@ -4,6 +4,16 @@ export default {
   darkMode: 'selector',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    extend: {
+      colors: {
+        primaryDark: '#0A0A11',
+        secondaryDark: '#161F37',
+        tertiaryDark: '#434D67',
+        primaryBrand: '#4070CD',
+        secondaryBrand: '#BCE6D2',
+        primaryLight: '#F3F3F3'
+      }
+    },
     container: {
       center: true,
       padding: {
@@ -16,14 +26,6 @@ export default {
       mobile: '375px',
       tablet: '768px',
       desktop: '1440px'
-    },
-    colors: {
-      primaryDark: '#0A0A11',
-      secondaryDark: '#161F37',
-      tertiaryDark: '#434D67',
-      primaryBrand: '#4070CD',
-      secondaryBrand: '#BCE6D2',
-      primaryLight: '#F3F3F3'
     },
     fontSize: {
       //! Font size 12px
