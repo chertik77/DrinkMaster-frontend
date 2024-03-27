@@ -1,15 +1,15 @@
-class Pages {
+export class Pages {
   ROOT = '/'
 
-  SIGNUP = 'signup'
-  SIGNIN = 'signin'
+  SIGNUP = '/signup'
+  SIGNIN = '/signin'
 
-  HOME = 'home'
+  DASHBOARD = '/dashboard'
 
-  DRINKS = 'drinks'
-  ADD_DRINK = 'add'
-  FAVORITES = 'favorites'
-  MY_DRINKS = 'my'
+  DRINKS = '/drinks'
+  ADD_DRINK = '/add'
+  FAVORITES = '/favorites'
+  MY_DRINKS = '/my'
 }
 
 export const PAGES_URL = new Pages()

@@ -7,6 +7,9 @@ export const alovaClassic = createAlova({
   cacheLogger: false,
   requestAdapter: GlobalFetch(),
   statesHook: ReactHook,
+  beforeRequest(method) {
+    method.config.credentials = 'include'
+  },
   responded: {
     onSuccess: async r => {
       if (r.status >= 400) throw new Error(r.statusText)
@@ -17,3 +20,13 @@ export const alovaClassic = createAlova({
     }
   }
 })
+
+// const options: CreateAxiosDefaults = {
+//   baseURL: process.env.API_BASE_URL,
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   withCredentials: true
+// }
+
+// export const axiosClassic = axios.create(options)

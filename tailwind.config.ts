@@ -11,7 +11,9 @@ export default {
         tertiaryDark: '#434D67',
         primaryBrand: '#4070CD',
         secondaryBrand: '#BCE6D2',
-        primaryLight: '#F3F3F3'
+        primaryLight: '#F3F3F3',
+        error: '#DA1414',
+        success: '#3CBC81'
       }
     },
     container: {
@@ -96,5 +98,6 @@ export default {
       //! Font size 64px
       'fs-64': ['64px', { lineHeight: '1.06', fontWeight: 600 }]
     }
-  }
+  },
+  plugins: [require('tailwindcss-text-fill')]
 } satisfies Config
