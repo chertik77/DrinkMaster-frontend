@@ -7,8 +7,11 @@ import { API_ENDPOINTS } from '@/config/api-endpoints.config'
 import { AUTH_TOKEN_SERVICE } from './auth-token.service'
 
 class AuthService {
-  signIn(data: SigninSchemaFields) {
-    const response = alovaClassic.Post<AuthResponse>(API_ENDPOINTS.SIGNIN, data)
+  signin(type: 'signin' | 'signup', data: SigninSchemaFields) {
+    const response = alovaClassic.Post<AuthResponse>(
+      type === 'signin' ? API_ENDPOINTS.SIGNIN : API_ENDPOINTS.SIGNUP,
+      data
+    )
 
     response.then(r => {
       if (r.accessToken) AUTH_TOKEN_SERVICE.saveTokenToCookies(r.accessToken)

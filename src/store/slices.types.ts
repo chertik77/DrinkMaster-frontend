@@ -1,8 +1,10 @@
+import type { AuthResponse } from '@/types/auth.types'
 import type { StateCreator } from 'zustand'
 
 export type SliceCreator<T> = StateCreator<T, [], [], T>
 
-export type UserSlice = {
+export type AuthSlice = {
+  isAuthnticated: boolean
   user: null | {
     id: string
     name: string
@@ -10,4 +12,5 @@ export type UserSlice = {
     userTheme: string
     dateOfBirth: string
   }
+  authenticate: (handler: Promise<AuthResponse>) => void
 }

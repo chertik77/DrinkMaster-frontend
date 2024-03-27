@@ -20,13 +20,3 @@ export const alovaClassic = createAlova({
     }
   }
 })
-
-// const options: CreateAxiosDefaults = {
-//   baseURL: process.env.API_BASE_URL,
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-//   withCredentials: true
-// }
-
-// export const axiosClassic = axios.create(options)

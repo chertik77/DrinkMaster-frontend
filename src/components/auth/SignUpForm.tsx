@@ -9,7 +9,7 @@ import { PAGES_URL } from '@/config/pages-url.config'
 
 import { AuthField } from './AuthField'
 
-export const SignInForm = () => {
+export const SignUpForm = () => {
   const {
     send,
     handleSubmit,
