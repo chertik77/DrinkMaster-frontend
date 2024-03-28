@@ -1,6 +1,6 @@
 import type { SigninSchemaFields } from '@/lib/utils/schemas/signin.schema'
 import type { SignUpSchemaFields } from '@/lib/utils/schemas/signup.schema'
-import type { AuthParamsType } from '@/types/auth.types'
+import type { AuthParamsType, User } from '@/types/auth.types'
 
 import { signinSchema } from '@/lib/utils/schemas/signin.schema'
 import { signUpSchema } from '@/lib/utils/schemas/signup.schema'
@@ -29,17 +29,32 @@ export const useAuthForm = (type: AuthParamsType) => {
     mode: 'onChange'
   })
 
-  const { loading, send, onSuccess } = useRequest(
+  const { loading, send, onSuccess, onError, error } = useRequest(
     data => AUTH_SERVICE.signin(type, data),
     { immediate: false }
   )
 
-  onSuccess(() => {
+  onSuccess(({ method }) => {
     reset()
     toast.success(
-      type === 'signin' ? 'Sign In successful' : 'Sign Up successful'
+      type === 'signin'
+        ? `Welcome back ${(method.data as User).name}!`
+        : `Welcome ${(method.data as User).name}! Your account has been successfully created.`
     )
     push(PAGES_URL.DASHBOARD)
+  })
+
+  onError(({ method }) => {
+    if (error?.message === 'Conflict') {
+      toast.error(
+        `Oops! An account with email ${(method.data as User).email} already exists. Please use a different email.`
+      )
+    }
+    if (error?.message === 'Unauthorized') {
+      toast.error(
+        'Oops! The email or password you entered is incorrect. Please try again.'
+      )
+    }
   })
 
   return {
