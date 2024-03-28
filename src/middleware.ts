@@ -32,15 +32,11 @@ export async function middleware({
   return NextResponse.next()
 }
 
-// const instance = new Pages()
-
-// const pages = Object.values(instance)
-
 export const config = {
   matcher: [
     '/',
-    '/signup',
-    '/signin',
+    '/auth/signup',
+    '/auth/signin',
     '/dashboard',
     '/drinks',
     '/add',

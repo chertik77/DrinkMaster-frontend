@@ -1,22 +1,10 @@
-'use client'
-
-import { useBoundStore } from '@/store'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 
 import { AuthLayout } from '@/components/auth/AuthLayout'
 
 import { PAGES_URL } from '@/config/pages-url.config'
 
 const WelcomePage = () => {
-  const { push } = useRouter()
-  const isAuthnticated = useBoundStore(s => s.isAuthnticated)
-
-  useEffect(() => {
-    if (isAuthnticated) push(PAGES_URL.DASHBOARD)
-  }, [isAuthnticated, push])
-
   return (
     <AuthLayout>
       <h1 className="mb-[14px] text-fs-28-fw-600 text-primaryLight tablet:text-fs-40">

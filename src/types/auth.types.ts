@@ -10,3 +10,5 @@ export type AuthResponse = {
   accessToken: string
   user: User
 }
+
+export type AuthParamsType = 'signin' | 'signup'

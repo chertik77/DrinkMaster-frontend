@@ -1,33 +1,53 @@
 'use client'
 
-import { signinSchema } from '@/lib/utils/schemas/signin.schema'
+import type { AuthParamsType } from '@/types/auth.types'
+
 import Link from 'next/link'
 
 import { useAuthForm } from '@/hooks/useAuthForm'
 
 import { PAGES_URL } from '@/config/pages-url.config'
 
-import { AuthField } from './AuthField'
+import { AuthField } from '../ui/AuthField'
 
-export const SignInForm = () => {
+type AuthFormProps = {
+  formType: AuthParamsType
+}
+
+export const AuthForm = ({ formType }: AuthFormProps) => {
   const {
-    send,
     handleSubmit,
     authenticate,
+    send,
     register,
     control,
     errors,
     loading
-  } = useAuthForm({
-    type: 'signin',
-    schema: signinSchema,
-    toastMessage: 'Signed in successfully!'
-  })
+  } = useAuthForm(formType)
 
   return (
     <form
       className="w-full"
       onSubmit={handleSubmit(data => authenticate(send(data)))}>
+      {formType === 'signup' && (
+        <AuthField
+          inputName='name'
+          placeholder='Name'
+          className="mb-[14px]"
+          control={control}
+          {...register('name')}
+        />
+      )}
+      {formType === 'signup' && (
+        // <DatePickerDialog />
+        <AuthField
+          inputName='dateOfBirth'
+          placeholder='Name'
+          className="mb-[14px] block"
+          control={control}
+          {...register('dateOfBirth')}
+        />
+      )}
       <AuthField
         inputName='email'
         placeholder='Email'
@@ -49,12 +69,12 @@ export const SignInForm = () => {
           className="w-full rounded-[42px] bg-primaryLight py-[18px] text-fs-14-fw-600
             tablet:text-fs-16-fw-600"
           disabled={loading}>
-          Sign In
+          {formType === 'signin' ? 'Sign In' : 'Sign Up'}
         </button>
         <Link
-          href={PAGES_URL.SIGNUP}
+          href={formType === 'signin' ? PAGES_URL.SIGNUP : PAGES_URL.SIGNIN}
           className="block text-center text-fs-12-fw-600 text-primaryLight">
-          Sign Up
+          {formType === 'signin' ? 'Sign Up' : 'Sign In'}
         </Link>
       </div>
     </form>

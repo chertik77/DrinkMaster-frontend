@@ -1,3 +1,3 @@
-const page = () => <div>erf</div>
+const Page = () => <div>erf</div>
 
-export default page
+export default Page

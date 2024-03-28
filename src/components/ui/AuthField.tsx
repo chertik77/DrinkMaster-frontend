@@ -1,6 +1,7 @@
 import type { SigninSchemaFields } from '@/lib/utils/schemas/signin.schema'
+import type { SignUpSchemaFields } from '@/lib/utils/schemas/signup.schema'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
-import type { Control } from 'react-hook-form'
+import type { Control, FieldValues } from 'react-hook-form'
 
 import { cn } from '@/lib/utils'
 import { ErrorMessage } from '@hookform/error-message'
@@ -8,8 +9,10 @@ import { forwardRef } from 'react'
 import { useFormState } from 'react-hook-form'
 
 type AuthFieldProps = InputHTMLAttributes<HTMLInputElement> & {
-  inputName: keyof SigninSchemaFields
-  control: Control<SigninSchemaFields>
+  inputName:
+    | keyof SigninSchemaFields
+    | keyof Pick<SignUpSchemaFields, 'name' | 'dateOfBirth'>
+  control: Control<SigninSchemaFields & SignUpSchemaFields & FieldValues>
 }
 
 export const AuthField = forwardRef(
