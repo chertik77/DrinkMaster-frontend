@@ -67,9 +67,13 @@ export const AuthForm = ({ formType }: AuthFormProps) => {
         <button
           type='submit'
           className="w-full rounded-[42px] bg-primaryLight py-[18px] text-fs-14-fw-600
-            tablet:text-fs-16-fw-600"
+            disabled:cursor-not-allowed disabled:bg-primaryLight/70 tablet:text-fs-16-fw-600"
           disabled={loading}>
-          {formType === 'signin' ? 'Sign In' : 'Sign Up'}
+          {loading
+            ? 'Signing in...'
+            : formType === 'signin'
+              ? 'Sign In'
+              : 'Sign Up'}
         </button>
         <Link
           href={formType === 'signin' ? PAGES_URL.SIGNUP : PAGES_URL.SIGNIN}

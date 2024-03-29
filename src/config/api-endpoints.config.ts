@@ -4,6 +4,7 @@ class Endpoints {
   'ACCESS-TOKEN' = '/auth/signin/access-token'
   SIGNOUT = '/auth/signout'
 
+  USER_PROFILE = '/user/profile'
   USER = '/user'
   USER_SUBSCRIPTION = '/user/subscribe'
 

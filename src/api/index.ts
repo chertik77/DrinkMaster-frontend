@@ -2,21 +2,30 @@ import { createAlova } from 'alova'
 import GlobalFetch from 'alova/GlobalFetch'
 import ReactHook from 'alova/react'
 
-export const alovaClassic = createAlova({
+const options = {
   baseURL: process.env.API_BASE_URL,
   cacheLogger: false,
   requestAdapter: GlobalFetch(),
-  statesHook: ReactHook,
+  statesHook: ReactHook
+}
+
+export const alovaClassic = createAlova({
+  ...options,
+  // requestAdapter: axiosRequestAdapter(),
   beforeRequest(method) {
     method.config.credentials = 'include'
   },
-  responded: {
-    onSuccess: async r => {
-      if (r.status >= 400) throw new Error(r.statusText)
+  responded: r => r.json()
+})
 
-      const json = await r.json()
+export const alovaWithAuth = createAlova({
+  ...options,
+  beforeRequest({ config }) {
+    // const accessToken = getAccessTokenFromCookies()
 
-      return json
+    if (config.headers) {
+      config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MDZmOTg2OTFmMzY4YWRjZDY4MjVhNCIsImlhdCI6MTcxMTczMzEyNiwiZXhwIjoxNzExNzM2NzI2fQ.AtDVbQrNNVVp4Fn68NiKUi9mjTsJK_jTo65dNe-bAIo`
     }
-  }
+  },
+  responded: r => r.json()
 })

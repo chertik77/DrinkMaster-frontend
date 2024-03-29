@@ -15,7 +15,9 @@ export const metadata: Metadata = {
 
 // bg-primaryLight text-fs-14-fw-400-lh-1.28 text-primaryDark tablet:text-fs-16-fw-400 dark:bg-primaryDark dark:text-primaryLight
 const RootLayout = ({ children }: PropsWithChildren) => (
-  <html lang='en'>
+  <html
+    lang='en'
+    suppressHydrationWarning>
     <body className={manrope.className}>
       <Toaster toastOptions={{ duration: 1500 }} />
       {children}
