@@ -24,7 +24,7 @@ export const alovaWithAuth = createAlova({
     // const accessToken = getAccessTokenFromCookies()
 
     if (config.headers) {
-      config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MDZmOTg2OTFmMzY4YWRjZDY4MjVhNCIsImlhdCI6MTcxMTczMzEyNiwiZXhwIjoxNzExNzM2NzI2fQ.AtDVbQrNNVVp4Fn68NiKUi9mjTsJK_jTo65dNe-bAIo`
+      config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1ZTY4Y2UyNGVlZmJkMTFhNTExMyIsImlhdCI6MTcxMTc0ODY3MywiZXhwIjoxNzExNzUyMjczfQ.PEKuIPwAE02F4Bv5AnukVkBeRWFG4EMLFCcp3g11t5E`
     }
   },
   responded: r => r.json()

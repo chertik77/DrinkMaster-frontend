@@ -22,3 +22,11 @@
     );
   }
 }
+
+.react-datepicker__day--selected {
+  @apply !rounded-[50%] !bg-primaryLight !text-secondaryDark;
+}
+
+.react-datepicker__header {
+  @apply !bg-secondaryDark !text-primaryLight;
+}

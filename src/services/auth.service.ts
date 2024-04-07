@@ -8,6 +8,7 @@ import { AUTH_TOKEN_SERVICE, saveTokenToCookies } from './auth-token.service'
 
 class AuthService {
   main(type: 'signin' | 'signup', data: SigninSchemaFields) {
+    console.log(data)
     const r = alovaClassic.Post<AuthResponse>(
       type === 'signin' ? API_ENDPOINTS.SIGNIN : API_ENDPOINTS.SIGNUP,
       data

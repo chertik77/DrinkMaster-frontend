@@ -9,26 +9,20 @@ import { useAuthForm } from '@/hooks/useAuthForm'
 import { PAGES_URL } from '@/config/pages-url.config'
 
 import { AuthField } from '../ui/AuthField'
+import { DateInput } from '../ui/DateInputPicker'
 
 type AuthFormProps = {
   formType: AuthParamsType
 }
 
 export const AuthForm = ({ formType }: AuthFormProps) => {
-  const {
-    handleSubmit,
-    authenticate,
-    send,
-    register,
-    control,
-    errors,
-    loading
-  } = useAuthForm(formType)
+  const { handleSubmit, send, register, control, errors, loading } =
+    useAuthForm(formType)
 
   return (
     <form
-      className="w-full"
-      onSubmit={handleSubmit(data => authenticate(send(data)))}>
+      className="z-10 w-full"
+      onSubmit={handleSubmit(data => send(data))}>
       {formType === 'signup' && (
         <AuthField
           inputName='name'
@@ -39,13 +33,9 @@ export const AuthForm = ({ formType }: AuthFormProps) => {
         />
       )}
       {formType === 'signup' && (
-        // <DatePickerDialog />
-        <AuthField
-          inputName='dateOfBirth'
-          placeholder='Name'
-          className="mb-[14px] block"
+        <DateInput
           control={control}
-          {...register('dateOfBirth')}
+          errors={errors}
         />
       )}
       <AuthField

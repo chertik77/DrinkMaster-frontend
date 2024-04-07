@@ -1,6 +1,8 @@
-import type { User } from '@/types/auth.types'
+import { userService } from '@/services/user.service'
 
-export const Header = ({ user }: { user: User }) => {
+export const HeaderLayout = async () => {
+  const user = await userService.getUserProfile()
+
   console.log(user)
   return <div className="text-red-600">{user.email}</div>
 }

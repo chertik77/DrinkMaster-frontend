@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { PAGES_URL } from '@/config/pages-url.config'
 
 export const AuthNavigation = () => (
-  <div className="flex items-center gap-[14px]">
+  <div className="z-10 flex items-center gap-[14px]">
     <Link
       href={PAGES_URL.SIGNUP}
       className="rounded-[42px] bg-primaryLight px-10 py-[14px] text-fs-14-fw-600 tablet:px-11

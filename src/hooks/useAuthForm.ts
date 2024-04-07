@@ -34,12 +34,13 @@ export const useAuthForm = (type: AuthParamsType) => {
     { immediate: false }
   )
 
-  onSuccess(({ data: { user } }) => {
+  onSuccess(({ data }) => {
+    console.log(data)
     reset()
     toast.success(
       type === 'signin'
-        ? `Welcome back ${user.name}!`
-        : `Welcome ${user.name}! Your account has been successfully created.`
+        ? `Welcome back ${data.user.name}!`
+        : `Welcome ${data.user.name}! Your account has been successfully created.`
     )
     push(PAGES_URL.DASHBOARD)
   })

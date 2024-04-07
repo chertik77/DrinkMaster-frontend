@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react'
 
+import { HeaderLayout } from '@/components/pages/dashboard/HeaderLayout'
 import { FacebookIcon } from '@/components/ui/icons/FacebookIcon'
 import { InstagramIcon } from '@/components/ui/icons/InstagramIcon'
 import { Logo } from '@/components/ui/icons/Logo'
@@ -11,7 +12,7 @@ const DashboardLayout = ({ children }: PropsWithChildren) => {
       // eslint-disable-next-line tailwindcss/classnames-order
       className="bg-primaryLight text-fs-14-fw-400-lh-1.28 text-primaryDark
         tablet:text-fs-16-fw-400 dark:bg-primaryDark dark:text-primaryLight">
-      <div className="bg-red-400">hello</div>
+      <HeaderLayout />
       {children}
       <div className="container bg-primaryDark pb-[18px] pt-10 text-primaryLight">
         <div>

@@ -5,6 +5,9 @@ export default {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        manrope: ['Manrope']
+      },
       colors: {
         primaryDark: '#0A0A11',
         secondaryDark: '#161F37',
