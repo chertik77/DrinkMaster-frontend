@@ -1,8 +1,8 @@
 export class Pages {
   ROOT = '/'
 
-  SIGNUP = '/auth/signup'
-  SIGNIN = '/auth/signin'
+  SIGNUP = '/signup'
+  SIGNIN = '/signin'
 
   DASHBOARD = '/dashboard'
 

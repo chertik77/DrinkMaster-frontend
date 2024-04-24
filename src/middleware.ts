@@ -35,8 +35,8 @@ export async function middleware({
 export const config = {
   matcher: [
     '/',
-    '/auth/signup',
-    '/auth/signin',
+    '/signup',
+    '/signin',
     '/dashboard',
     '/drinks',
     '/add',

@@ -19,7 +19,7 @@ const RootLayout = ({ children }: PropsWithChildren) => (
     lang='en'
     suppressHydrationWarning>
     <body className={manrope.className}>
-      <Toaster toastOptions={{ duration: 1500 }} />
+      <Toaster />
       {children}
     </body>
   </html>

@@ -15,7 +15,7 @@ import { PAGES_URL } from '@/config/pages-url.config'
 import { authService } from '@/services/auth.service'
 
 export const useAuthForm = (type: AuthParamsType) => {
-  const { push } = useRouter()
+  const { replace } = useRouter()
   const authenticate = useBoundStore(s => s.authenticate)
 
   const {
@@ -42,7 +42,7 @@ export const useAuthForm = (type: AuthParamsType) => {
         ? `Welcome back ${data.user.name}!`
         : `Welcome ${data.user.name}! Your account has been successfully created.`
     )
-    push(PAGES_URL.DASHBOARD)
+    replace(PAGES_URL.DASHBOARD)
   })
 
   onError(({ error }) => {

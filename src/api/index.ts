@@ -1,6 +1,17 @@
+import { createClientTokenAuthentication } from '@alova/scene-react'
 import { createAlova } from 'alova'
 import GlobalFetch from 'alova/GlobalFetch'
 import ReactHook from 'alova/react'
+
+import { getAccessTokenFromCookies } from '@/services/auth-token.service'
+
+const { onAuthRequired } = createClientTokenAuthentication<typeof ReactHook>({
+  assignToken: method => {
+    console.log(getAccessTokenFromCookies())
+    method.config.credentials = 'include'
+    method.config.headers.Authorization = getAccessTokenFromCookies()
+  }
+})
 
 const options = {
   baseURL: process.env.API_BASE_URL,
@@ -11,7 +22,6 @@ const options = {
 
 export const alovaClassic = createAlova({
   ...options,
-  // requestAdapter: axiosRequestAdapter(),
   beforeRequest(method) {
     method.config.credentials = 'include'
   },
@@ -20,12 +30,6 @@ export const alovaClassic = createAlova({
 
 export const alovaWithAuth = createAlova({
   ...options,
-  beforeRequest({ config }) {
-    // const accessToken = getAccessTokenFromCookies()
-
-    if (config.headers) {
-      config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmM1ZTY4Y2UyNGVlZmJkMTFhNTExMyIsImlhdCI6MTcxMTc0ODY3MywiZXhwIjoxNzExNzUyMjczfQ.PEKuIPwAE02F4Bv5AnukVkBeRWFG4EMLFCcp3g11t5E`
-    }
-  },
+  beforeRequest: onAuthRequired(),
   responded: r => r.json()
 })

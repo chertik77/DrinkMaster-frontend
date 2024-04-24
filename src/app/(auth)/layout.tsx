@@ -2,8 +2,8 @@ import type { PropsWithChildren } from 'react'
 
 import { AuthLayout } from '@/components/auth/AuthLayout'
 
-const NestedLayout = ({ children }: PropsWithChildren) => (
+const Layout = ({ children }: PropsWithChildren) => (
   <AuthLayout>{children}</AuthLayout>
 )
 
-export default NestedLayout
+export default Layout

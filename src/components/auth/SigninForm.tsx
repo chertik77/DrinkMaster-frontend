@@ -1,43 +1,27 @@
 'use client'
 
-import type { AuthParamsType } from '@/types/auth.types'
-
+import { useRequest } from 'alova'
 import Link from 'next/link'
 
-import { useAuthForm } from '@/hooks/useAuthForm'
+import { useSigninForm } from '@/hooks/auth/useSigninForm'
 
 import { PAGES_URL } from '@/config/pages-url.config'
+import { authService } from '@/services/auth.service'
 
 import { AuthField } from '../ui/AuthField'
-import { DateInput } from '../ui/DateInputPicker'
 
-type AuthFormProps = {
-  formType: AuthParamsType
-}
+export const SigninForm = () => {
+  const { loading, send } = useRequest(
+    data => authService.main('signin', data),
+    { immediate: false }
+  )
 
-export const AuthForm = ({ formType }: AuthFormProps) => {
-  const { handleSubmit, send, register, control, errors, loading } =
-    useAuthForm(formType)
+  const { handleSubmit, register, control, formState } = useSigninForm()
 
   return (
     <form
       className="z-10 w-full"
       onSubmit={handleSubmit(data => send(data))}>
-      {formType === 'signup' && (
-        <AuthField
-          inputName='name'
-          placeholder='Name'
-          className="mb-[14px]"
-          control={control}
-          {...register('name')}
-        />
-      )}
-      {formType === 'signup' && (
-        <DateInput
-          control={control}
-          errors={errors}
-        />
-      )}
       <AuthField
         inputName='email'
         placeholder='Email'
@@ -50,7 +34,7 @@ export const AuthForm = ({ formType }: AuthFormProps) => {
         type='password'
         placeholder='Password'
         control={control}
-        className={`mb-7 ${errors.password && '!mb-[14px]'}`}
+        className={`mb-7 ${formState.errors.password && '!mb-[14px]'}`}
         {...register('password')}
       />
       <div className="w-full space-y-[14px] tablet:w-[400px]">
@@ -59,16 +43,12 @@ export const AuthForm = ({ formType }: AuthFormProps) => {
           className="w-full rounded-[42px] bg-primaryLight py-[18px] text-fs-14-fw-600
             disabled:cursor-not-allowed disabled:bg-primaryLight/70 tablet:text-fs-16-fw-600"
           disabled={loading}>
-          {loading
-            ? 'Signing in...'
-            : formType === 'signin'
-              ? 'Sign In'
-              : 'Sign Up'}
+          {loading ? 'Signing in...' : 'Sign In'}
         </button>
         <Link
-          href={formType === 'signin' ? PAGES_URL.SIGNUP : PAGES_URL.SIGNIN}
+          href={PAGES_URL.SIGNUP}
           className="block text-center text-fs-12-fw-600 text-primaryLight">
-          {formType === 'signin' ? 'Sign Up' : 'Sign In'}
+          Sign Up
         </Link>
       </div>
     </form>
