@@ -1,12 +1,10 @@
 'use client'
 
-import type { PropsWithChildren } from 'react'
-
 import { Select, SelectItem } from '@nextui-org/react'
 
 import { animals } from '@/components/pages/dashboard/HeaderLayout'
 
-const DashboardLayout = ({ children }: PropsWithChildren) => {
+const DashboardLayout = () => {
   return (
     <div>
       <Select>
