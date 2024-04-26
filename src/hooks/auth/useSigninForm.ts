@@ -18,6 +18,5 @@ export const useSigninForm = () => {
     progressive: true
   })
 
-  
   return { handleSubmit, reset, register, control, errors, isValid }
 }
