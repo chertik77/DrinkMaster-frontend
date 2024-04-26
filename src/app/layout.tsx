@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { PropsWithChildren } from 'react'
 
 import { Manrope } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Toaster } from 'react-hot-toast'
 
 import './globals.css'
@@ -22,6 +23,7 @@ const RootLayout = ({ children }: PropsWithChildren) => (
     <body className={manrope.className}>
       <Toaster />
       {children}
+      <SpeedInsights />
     </body>
   </html>
 )
