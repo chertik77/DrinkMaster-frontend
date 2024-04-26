@@ -1,25 +1,8 @@
 'use client'
 
-import { Select, SelectItem } from '@nextui-org/react'
-
-import { animals } from '@/components/pages/dashboard/HeaderLayout'
-
 const DashboardLayout = () => {
   return (
-    <div>
-      <Select>
-        {animals.map(animal => (
-          <SelectItem
-            classNames={{
-              base: 'text-primaryLight'
-            }}
-            key={animal.value}
-            value={animal.value}>
-            {animal.label}
-          </SelectItem>
-        ))}
-      </Select>
-    </div>
+    <div></div>
     // // eslint-disable-next-line tailwindcss/classnames-order
     // className="bg-primaryLight text-fs-14-fw-400-lh-1.28 text-primaryDark
     //   tablet:text-fs-16-fw-400 dark:bg-primaryDark dark:text-primaryLight">

@@ -1,19 +1,12 @@
 import type { SignUpSchemaFields } from '@/lib/utils/schemas/signup.schema'
 import type { Control } from 'react-hook-form'
 
-import { cn } from '@nextui-org/react'
-// import { Controller } from 'react-hook-form'
-
-// import type { SignUpSchemaFields } from '@/lib/utils/schemas/signup.schema'
-// import type { Control } from 'react-hook-form'
-
-// import { cn } from '@/lib/utils'
-// import { addDays } from 'date-fns'
-
-import { addDays } from 'date-fns'
 import Image from 'next/image'
+import { addDays } from 'date-fns'
 import { DayPicker, useInput } from 'react-day-picker'
 import { Controller } from 'react-hook-form'
+
+import { cn } from '@/lib/utils'
 
 import { Popover, PopoverContent, PopoverTrigger } from './Popover'
 

@@ -3,11 +3,12 @@ import type { SignUpSchemaFields } from '@/lib/utils/schemas/signup.schema'
 import type { ForwardedRef, InputHTMLAttributes } from 'react'
 import type { Control } from 'react-hook-form'
 
-import { cn } from '@/lib/utils'
-import { ErrorMessage } from '@hookform/error-message'
 import Image from 'next/image'
 import { forwardRef, useState } from 'react'
+import { ErrorMessage } from '@hookform/error-message'
 import { useFormState } from 'react-hook-form'
+
+import { cn } from '@/lib/utils'
 
 type AuthFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   isPasswordField?: boolean
