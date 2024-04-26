@@ -4,7 +4,8 @@ export default {
   darkMode: 'class',
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+    './node_modules/tailwind-datepicker-react/dist/**/*.js'
   ],
   theme: {
     extend: {
@@ -105,5 +106,9 @@ export default {
       'fs-64': ['64px', { lineHeight: '1.06', fontWeight: 600 }]
     }
   },
-  plugins: [require('tailwindcss-text-fill'), require('@nextui-org/react')]
+  plugins: [
+    require('tailwindcss-text-fill'),
+    require('@nextui-org/react'),
+    require('tailwindcss-animate')
+  ]
 } satisfies Config

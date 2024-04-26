@@ -1,7 +1,12 @@
 'use client'
 
+import type { SignUpSchemaFields } from '@/lib/utils/schemas/signup.schema'
+import type { AuthResponse } from '@/types/auth.types'
+
+import { promiseToast } from '@/lib/utils/promise-toast'
+import { ErrorMessage } from '@hookform/error-message'
 import { useRequest } from 'alova'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import { useSignupForm } from '@/hooks/auth/useSignupForm'
 
@@ -9,20 +14,46 @@ import { PAGES_URL } from '@/config/pages-url.config'
 import { authService } from '@/services/auth.service'
 
 import { AuthField } from '../ui/AuthField'
-import { DatePickerDemo } from '../ui/DateInputPicker'
+import { DatePickerInput } from '../ui/DateInputPicker'
+import { AuthFormNavigation } from './AuthFormNavigation'
 
 export const SignupForm = () => {
+  const { replace } = useRouter()
+
   const { loading, send } = useRequest(
     data => authService.main('signup', data),
     { immediate: false }
   )
 
-  const { handleSubmit, control, register, formState } = useSignupForm()
+  const { handleSubmit, control, register, errors, reset, isValid } =
+    useSignupForm()
+
+  const submit = (data: SignUpSchemaFields) => {
+    promiseToast<AuthResponse>(
+      send(data),
+      {
+        loading: 'Signing up...',
+        success: ({ user }) => {
+          replace(PAGES_URL.DASHBOARD)
+          reset()
+          return `Welcome ${user.name}! Your account has been successfully created. We're glad to have you with us!`
+        },
+        error: e => {
+          if (e.response?.status === 409) {
+            return 'The email you entered is already associated with an account. Please try signing in or use a different email.'
+          }
+
+          return 'Somewhere went wrong. Please try again.'
+        }
+      },
+      { duration: 5000 }
+    )
+  }
 
   return (
     <form
       className="z-10 w-full"
-      onSubmit={handleSubmit(data => send(data))}>
+      onSubmit={handleSubmit(submit)}>
       <AuthField
         inputName='name'
         placeholder='Name'
@@ -30,9 +61,13 @@ export const SignupForm = () => {
         control={control}
         {...register('name')}
       />
-      <DatePickerDemo
-      // control={control}
-      // errors={errors}
+      <DatePickerInput control={control} />
+      <ErrorMessage
+        errors={errors}
+        name='dateOfBirth'
+        render={({ message }) => (
+          <div className="mb-[14px] ml-2 text-error">{message}</div>
+        )}
       />
       <AuthField
         inputName='email'
@@ -41,28 +76,19 @@ export const SignupForm = () => {
         control={control}
         {...register('email')}
       />
+
       <AuthField
         inputName='password'
-        type='password'
         placeholder='Password'
         control={control}
-        className={`mb-7 ${formState.errors.password && '!mb-[14px]'}`}
+        className={`mb-7 ${errors.password && '!mb-[14px]'}`}
         {...register('password')}
       />
-      <div className="w-full space-y-[14px] tablet:w-[400px]">
-        <button
-          type='submit'
-          className="w-full rounded-[42px] bg-primaryLight py-[18px] text-fs-14-fw-600
-            disabled:cursor-not-allowed disabled:bg-primaryLight/70 tablet:text-fs-16-fw-600"
-          disabled={loading}>
-          {loading ? 'Signing up...' : 'Sign Up'}
-        </button>
-        <Link
-          href={PAGES_URL.SIGNIN}
-          className="block text-center text-fs-12-fw-600 text-primaryLight">
-          Sign In
-        </Link>
-      </div>
+      <AuthFormNavigation
+        formType='signup'
+        loading={loading}
+        isValid={isValid}
+      />
     </form>
   )
 }

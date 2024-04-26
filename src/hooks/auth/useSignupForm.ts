@@ -4,8 +4,18 @@ import { signUpSchema } from '@/lib/utils/schemas/signup.schema'
 import { valibotResolver } from '@hookform/resolvers/valibot'
 import { useForm } from 'react-hook-form'
 
-export const useSignupForm = () =>
-  useForm<SignUpSchemaFields>({
+export const useSignupForm = () => {
+  const {
+    handleSubmit,
+    reset,
+    register,
+    control,
+    formState: { errors, isValid }
+  } = useForm<SignUpSchemaFields>({
     resolver: valibotResolver(signUpSchema),
-    mode: 'onChange'
+    mode: 'onChange',
+    progressive: true
   })
+
+  return { handleSubmit, reset, register, control, errors, isValid }
+}

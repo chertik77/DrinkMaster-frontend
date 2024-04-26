@@ -4,7 +4,7 @@ import type { AuthResponse } from '@/types/auth.types'
 import { alovaClassic } from '@/api'
 import { API_ENDPOINTS } from '@/config/api-endpoints.config'
 
-import { AUTH_TOKEN_SERVICE, saveTokenToCookies } from './auth-token.service'
+import { AUTH_TOKEN_SERVICE } from './auth-token.service'
 
 class AuthService {
   main(type: 'signin' | 'signup', data: SigninSchemaFields) {
@@ -14,7 +14,7 @@ class AuthService {
     )
 
     r.then(r => {
-      if (r.accessToken) saveTokenToCookies(r.accessToken)
+      if (r.accessToken) AUTH_TOKEN_SERVICE.saveTokenToCookies(r.accessToken)
     })
 
     return r
@@ -25,7 +25,7 @@ class AuthService {
       API_ENDPOINTS['ACCESS-TOKEN']
     )
 
-    if (r.accessToken) saveTokenToCookies(r.accessToken)
+    if (r.accessToken) AUTH_TOKEN_SERVICE.saveTokenToCookies(r.accessToken)
 
     return r
   }

@@ -7,7 +7,7 @@ export const signUpSchema = object({
     toTrimmed(),
     minLength(2, 'Please enter at least 2 characters.')
   ]),
-  dateOfBirth: date('Please enter a valid birth date.'),
+  dateOfBirth: date('Please enter or select a valid birth date.'),
   email: string([toTrimmed(), email('Please enter a valid email.')]),
   password: string([
     toTrimmed(),
