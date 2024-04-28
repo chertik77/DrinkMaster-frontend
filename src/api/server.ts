@@ -1,3 +1,5 @@
+'use server'
+
 import { cookies } from 'next/headers'
 import { createClientTokenAuthentication } from '@alova/scene-react'
 import { createAlova } from 'alova'

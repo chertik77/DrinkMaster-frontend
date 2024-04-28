@@ -5,10 +5,9 @@ import type { Control } from 'react-hook-form'
 
 import Image from 'next/image'
 import { forwardRef, useState } from 'react'
+import { cn } from '@/lib/utils'
 import { ErrorMessage } from '@hookform/error-message'
 import { useFormState } from 'react-hook-form'
-
-import { cn } from '@/lib/utils'
 
 type AuthFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   isPasswordField?: boolean

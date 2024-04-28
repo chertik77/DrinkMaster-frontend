@@ -1,5 +1,4 @@
 import Link from 'next/link'
-
 import { PAGES_URL } from '@/config/pages-url.config'
 
 type AuthFormNavigationProps = {
