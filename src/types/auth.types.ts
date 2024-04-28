@@ -4,6 +4,7 @@ export type User = {
   email: string
   userTheme: string
   dateOfBirth: string
+  avatarURL: string
 }
 
 export type AuthResponse = {

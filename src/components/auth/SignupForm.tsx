@@ -4,15 +4,13 @@ import type { SignUpSchemaFields } from '@/lib/utils/schemas/signup.schema'
 import type { AuthResponse } from '@/types/auth.types'
 
 import { useRouter } from 'next/navigation'
+import { PAGES_URL } from '@/config/pages-url.config'
+import { useSignupForm } from '@/hooks/auth/useSignupForm'
+import { promiseToast } from '@/lib/utils/promise-toast'
 import { ErrorMessage } from '@hookform/error-message'
 import { useRequest } from 'alova'
 
-import { useSignupForm } from '@/hooks/auth/useSignupForm'
-
-import { PAGES_URL } from '@/config/pages-url.config'
-import { authService } from '@/services/auth.service'
-
-import { promiseToast } from '@/lib/utils/promise-toast'
+import { authService } from '@services'
 
 import { AuthField } from '../ui/AuthField'
 import { DatePickerInput } from '../ui/DateInputPicker'

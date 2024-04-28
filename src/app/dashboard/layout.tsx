@@ -1,8 +1,10 @@
-'use client'
+import { HeaderLayout } from '@components/pages/dashboard/HeaderLayout'
 
 const DashboardLayout = () => {
   return (
-    <div></div>
+    <div className="">
+      <HeaderLayout />
+    </div>
     // // eslint-disable-next-line tailwindcss/classnames-order
     // className="bg-primaryLight text-fs-14-fw-400-lh-1.28 text-primaryDark
     //   tablet:text-fs-16-fw-400 dark:bg-primaryDark dark:text-primaryLight">

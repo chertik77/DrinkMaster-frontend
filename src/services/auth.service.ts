@@ -4,7 +4,7 @@ import type { AuthResponse } from '@/types/auth.types'
 import { alovaClassic } from '@/api'
 import { API_ENDPOINTS } from '@/config/api-endpoints.config'
 
-import { AUTH_TOKEN_SERVICE } from './auth-token.service'
+import { AUTH_TOKEN_SERVICE } from '.'
 
 class AuthService {
   main(type: 'signin' | 'signup', data: SigninSchemaFields) {

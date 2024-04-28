@@ -1,7 +1,7 @@
-'use client'
-
 import type { PropsWithChildren } from 'react'
 
+import { CookiesProvider } from 'next-client-cookies/server'
+
 export const Providers = ({ children }: PropsWithChildren) => {
-  return <>{children}</>
+  return <CookiesProvider>{children}</CookiesProvider>
 }

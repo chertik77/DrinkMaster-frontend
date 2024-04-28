@@ -7,6 +7,8 @@ import { Toaster } from 'react-hot-toast'
 
 import './globals.css'
 
+import { Providers } from './providers'
+
 const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600'] })
 
 export const metadata: Metadata = {
@@ -17,12 +19,12 @@ export const metadata: Metadata = {
 // bg-primaryLight text-fs-14-fw-400-lh-1.28 text-primaryDark tablet:text-fs-16-fw-400 dark:bg-primaryDark dark:text-primaryLight
 const RootLayout = ({ children }: PropsWithChildren) => (
   <html
-    className="bg-black dark:bg-primaryLight"
+    // className="bg-black dark:bg-primaryLight"
     lang='en'
     suppressHydrationWarning>
     <body className={manrope.className}>
       <Toaster />
-      {children}
+      <Providers>{children}</Providers>
       <SpeedInsights />
     </body>
   </html>

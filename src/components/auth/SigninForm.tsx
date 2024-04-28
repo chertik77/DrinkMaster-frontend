@@ -4,14 +4,12 @@ import type { SigninSchemaFields } from '@/lib/utils/schemas/signin.schema'
 import type { AuthResponse } from '@/types/auth.types'
 
 import { useRouter } from 'next/navigation'
+import { PAGES_URL } from '@/config/pages-url.config'
+import { useSigninForm } from '@/hooks/auth/useSigninForm'
+import { promiseToast } from '@/lib/utils/promise-toast'
 import { useRequest } from 'alova'
 
-import { useSigninForm } from '@/hooks/auth/useSigninForm'
-
-import { PAGES_URL } from '@/config/pages-url.config'
-import { authService } from '@/services/auth.service'
-
-import { promiseToast } from '@/lib/utils/promise-toast'
+import { authService } from '@services'
 
 import { AuthField } from '../ui/AuthField'
 import { AuthFormNavigation } from './AuthFormNavigation'
