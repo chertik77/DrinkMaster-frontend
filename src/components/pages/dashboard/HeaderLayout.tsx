@@ -1,14 +1,14 @@
 import Image from 'next/image'
 
 import { BurgerIcon } from '@components/ui/icons/BurgerIcon'
-import { Switch } from '@components/ui/ThemeSwitcher'
 
 import { userService } from '@services'
+
+import { HeaderThemeSwitcher } from './header/HeaderThemeSwitcher'
 
 export const HeaderLayout = async () => {
   const user = await userService.getUserProfile()
 
-  console.log(user)
   return (
     <div className="container flex justify-between border-b border-secondaryDark/10 py-5">
       <div className="flex items-center gap-2 tablet:gap-[14px]">
@@ -22,7 +22,7 @@ export const HeaderLayout = async () => {
         <p className="text-fs-16-fw-600 tablet:text-fs-18-600">Drink Master</p>
       </div>
       <div className="flex items-center gap-[14px]">
-        <Switch />
+        <HeaderThemeSwitcher />
         <div className="flex items-center gap-2">
           <Image
             src={user?.avatarURL}

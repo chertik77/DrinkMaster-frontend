@@ -22,8 +22,7 @@ export const SigninForm = () => {
     { immediate: false }
   )
 
-  const { handleSubmit, register, control, errors, isValid, reset } =
-    useSigninForm()
+  const { handleSubmit, register, control, formState, reset } = useSigninForm()
 
   const submit = (data: SigninSchemaFields) => {
     promiseToast<AuthResponse>(
@@ -60,12 +59,12 @@ export const SigninForm = () => {
         inputName='password'
         placeholder='Password'
         control={control}
-        className={`mb-7 ${errors.password && '!mb-[14px]'}`}
+        className={`mb-7 ${formState.errors.password && '!mb-[14px]'}`}
         {...register('password')}
       />
       <AuthFormNavigation
         loading={loading}
-        isValid={isValid}
+        isValid={formState.isValid}
         formType='signin'
       />
     </form>
