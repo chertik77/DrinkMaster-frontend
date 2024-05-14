@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import type { PropsWithChildren } from 'react'
 
 import { Manrope } from 'next/font/google'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Toaster } from 'react-hot-toast'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import './globals.css'
 

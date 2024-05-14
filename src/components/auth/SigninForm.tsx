@@ -4,10 +4,10 @@ import type { SigninSchemaFields } from '@/lib/utils/schemas/signin.schema'
 import type { AuthResponse } from '@/types/auth.types'
 
 import { useRouter } from 'next/navigation'
+import { useRequest } from 'alova'
 import { PAGES_URL } from '@/config/pages-url.config'
 import { useSigninForm } from '@/hooks/auth/useSigninForm'
 import { promiseToast } from '@/lib/utils/promise-toast'
-import { useRequest } from 'alova'
 
 import { authService } from '@services'
 

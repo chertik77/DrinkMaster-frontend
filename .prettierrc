@@ -16,6 +16,8 @@
     "<TYPES>^[.]",
     "",
     "^(next|react)(/.*)?$",
+    "react",
+    "^(?!react)\\w+$",
     "<THIRD_PARTY_MODULES>",
     "",
     "^@components(/.*)?$",

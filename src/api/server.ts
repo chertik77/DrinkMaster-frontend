@@ -1,7 +1,7 @@
 import { createClientTokenAuthentication } from '@alova/scene-react'
+import ReactHook from 'alova/react'
 import { createAlova } from 'alova'
 import GlobalFetch from 'alova/GlobalFetch'
-import ReactHook from 'alova/react'
 import { getCookies } from 'next-client-cookies/server'
 
 import { EnumTokens } from '@services'

@@ -1,7 +1,7 @@
 import { createClientTokenAuthentication } from '@alova/scene-react'
+import ReactHook from 'alova/react'
 import { createAlova } from 'alova'
 import GlobalFetch from 'alova/GlobalFetch'
-import ReactHook from 'alova/react'
 
 import { AUTH_TOKEN_SERVICE } from '@services'
 

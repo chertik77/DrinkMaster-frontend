@@ -1,8 +1,8 @@
 import type { ComponentPropsWithoutRef, ElementRef } from 'react'
 
 import { forwardRef } from 'react'
-import { cn } from '@/lib/utils'
 import { Anchor, Content, Portal, Root, Trigger } from '@radix-ui/react-popover'
+import { cn } from '@/lib/utils'
 
 const Popover = Root
 
