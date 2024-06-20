@@ -8,6 +8,9 @@ export default {
       fontFamily: {
         manrope: 'var(--font-manrope)'
       },
+      spacing: {
+        lg: '18px'
+      },
       colors: {
         black: '#0A0A11',
         'black-secondary': '#161F37',
