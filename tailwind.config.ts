@@ -9,7 +9,9 @@ export default {
         manrope: 'var(--font-manrope)'
       },
       spacing: {
-        lg: '18px'
+        lg: '18px',
+        '10xl': '100px',
+        '40xl': '400px'
       },
       colors: {
         black: '#0A0A11',
