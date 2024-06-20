@@ -2,29 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-.welcome-layout {
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
-  background-image: image-set('/welcome.avif' 1x, '/welcome@2x.avif' 2x);
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
 
-  @media (width >= 768px) {
-    background-image: image-set(
-      '/welcome-tablet.avif' 1x,
-      '/welcome-tablet@2x.avif' 2x
-    );
-  }
-
-  @media (width >= 1440px) {
-    background-image: image-set(
-      '/welcome-desktop.avif' 1x,
-      '/welcome-desktop@2x.avif' 2x
-    );
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
-::-webkit-credentials-auto-fill-button {
-  visibility: hidden;
-  position: absolute;
-  right: 0;
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
