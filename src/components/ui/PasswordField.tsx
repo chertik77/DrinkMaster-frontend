@@ -18,7 +18,7 @@ export const PasswordField = ({
     <>
       <div className='relative w-full tablet:w-40xl'>
         <input
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           className={cn(
             `mb-10 block h-[56px] w-full rounded-[200px] border border-white/20
             bg-transparent px-6 text-md text-white autofill:bg-clip-text

@@ -27,26 +27,42 @@ export const Basic = () => {
       </DatePicker.Control>
       <Portal>
         <DatePicker.Positioner className='!z-10'>
-          <DatePicker.Content className='rounded-lg bg-black-secondary p-3.5 text-white'>
+          <DatePicker.Content className='rounded-lg bg-black-secondary p-3.5 font-manrope text-white'>
             {/* <DatePicker.YearSelect /> */}
             {/* <DatePicker.MonthSelect /> */}
             <DatePicker.View view='day'>
               <DatePicker.Context>
                 {datePicker => (
                   <>
-                    <DatePicker.ViewControl>
-                      <DatePicker.PrevTrigger>Prev</DatePicker.PrevTrigger>
+                    <DatePicker.ViewControl className='flex justify-center border-b border-white/20 pb-3.5'>
+                      <DatePicker.PrevTrigger className='absolute left-3.5 top-lg'>
+                        <Image
+                          src='/arrow-prev.svg'
+                          alt='Prev Month Icon'
+                          width={6}
+                          height={6}
+                        />
+                      </DatePicker.PrevTrigger>
                       <DatePicker.ViewTrigger>
-                        <DatePicker.RangeText />
+                        <DatePicker.RangeText className='text-md font-medium' />
                       </DatePicker.ViewTrigger>
-                      <DatePicker.NextTrigger>Next</DatePicker.NextTrigger>
+                      <DatePicker.NextTrigger className='absolute right-3.5 top-lg'>
+                        <Image
+                          src='/arrow-next.svg'
+                          alt='Next Month Icon'
+                          width={6}
+                          height={6}
+                        />
+                      </DatePicker.NextTrigger>
                     </DatePicker.ViewControl>
-                    <DatePicker.Table>
+                    <DatePicker.Table className='mt-3.5'>
                       <DatePicker.TableHead>
-                        <DatePicker.TableRow>
+                        <DatePicker.TableRow className='!space-x-[11px]'>
                           {datePicker.weekDays.map((weekDay, id) => (
-                            <DatePicker.TableHeader key={id}>
-                              {weekDay.short}
+                            <DatePicker.TableHeader
+                              key={id}
+                              className='!mr-[11px] text-base font-medium text-white/50'>
+                              {weekDay.short.slice(0, -1)}
                             </DatePicker.TableHeader>
                           ))}
                         </DatePicker.TableRow>
@@ -57,8 +73,9 @@ export const Basic = () => {
                             {week.map((day, id) => (
                               <DatePicker.TableCell
                                 key={id}
-                                value={day}>
-                                <DatePicker.TableCellTrigger>
+                                value={day}
+                                className=''>
+                                <DatePicker.TableCellTrigger className='text-base font-normal'>
                                   {day.day}
                                 </DatePicker.TableCellTrigger>
                               </DatePicker.TableCell>
