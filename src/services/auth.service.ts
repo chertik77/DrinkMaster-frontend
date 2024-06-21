@@ -30,17 +30,14 @@ export const authService = {
   async getNewTokens() {
     const r = await axiosInstance.post<AuthResponse>(ApiEndpoints.Tokens)
 
-    if (r.data.accessToken)
+    if (r.data.accessToken) {
       authTokenService.saveTokenToCookies(r.data.accessToken)
-
-    return r
+    }
   },
 
   async signout() {
     const r = await axiosInstance.post<boolean>(ApiEndpoints.Signout)
 
     if (r) authTokenService.removeTokenFromCookies()
-
-    return r
   }
 }

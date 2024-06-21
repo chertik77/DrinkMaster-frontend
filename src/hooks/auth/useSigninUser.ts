@@ -21,10 +21,7 @@ export const useSigninUser = (reset: UseFormReset<SigninSchema>) => {
     onError(e) {
       if (e.response?.status === 401) {
         enqueueSnackbar('Sign-in failed: Invalid email or password.', {
-          className: 'text-balance w-[300px]',
-          variant: 'error',
-          anchorOrigin: { vertical: 'top', horizontal: 'right' },
-          preventDuplicate: true
+          variant: 'error'
         })
       }
     }

@@ -35,8 +35,12 @@ declare module '@tanstack/react-query' {
 
 export const Providers = ({ children }: PropsWithChildren) => {
   const queryClient = getQueryClient()
+
   return (
-    <SnackbarProvider>
+    <SnackbarProvider
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      className='w-[300px] text-balance'
+      preventDuplicate>
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </SnackbarProvider>
   )

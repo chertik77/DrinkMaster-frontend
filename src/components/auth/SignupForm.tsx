@@ -2,7 +2,9 @@
 
 import { FormProvider } from 'react-hook-form'
 
-import { useSignupForm } from '@/hooks/auth/useSignupForm'
+import { useAppForm } from '@/hooks/useAppForm'
+
+import { SignupSchema } from '@/lib/schemas/auth.schema'
 
 import { AuthField } from '../ui/AuthField'
 import { Basic } from '../ui/BirthDatePicker'
@@ -10,7 +12,7 @@ import { PasswordField } from '../ui/PasswordField'
 import { AuthFormNavigation } from './AuthFormNavigation'
 
 export const SignupForm = () => {
-  const methods = useSignupForm()
+  const methods = useAppForm<SignupSchema>(SignupSchema)
 
   return (
     <FormProvider {...methods}>

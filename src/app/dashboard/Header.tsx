@@ -10,6 +10,5 @@ export const Header = () => {
     queryFn: () => axiosInstance.get('/user/profile')
   })
 
-  console.log(data)
   return <div>{data?.data.name}</div>
 }

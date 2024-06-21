@@ -13,7 +13,6 @@ export const authTokenService = {
   },
 
   saveTokenToCookies: (accessToken: string) => {
-    console.log(accessToken)
     Cookies.set(EnumTokens.AccessToken, accessToken, {
       domain: 'localhost',
       sameSite: 'strict',

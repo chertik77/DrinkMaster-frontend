@@ -2,15 +2,17 @@
 
 import { FormProvider } from 'react-hook-form'
 
-import { useSigninForm } from '@/hooks/auth/useSigninForm'
 import { useSigninUser } from '@/hooks/auth/useSigninUser'
+import { useAppForm } from '@/hooks/useAppForm'
+
+import { SigninSchema } from '@/lib/schemas/auth.schema'
 
 import { AuthField } from '../ui/AuthField'
 import { PasswordField } from '../ui/PasswordField'
 import { AuthFormNavigation } from './AuthFormNavigation'
 
 export const SigninForm = () => {
-  const methods = useSigninForm()
+  const methods = useAppForm<SigninSchema>(SigninSchema)
 
   const { isPending, mutate } = useSigninUser(methods.reset)
 

@@ -3,7 +3,7 @@ import { PublicOnlyLayout } from '@/components/PublicOnlyLayout'
 
 const HomePage = () => (
   <PublicOnlyLayout>
-    <h1 className='z-10 mb-[14px] text-2xl text-white tablet:text-4xl'>
+    <h1 className='z-10 mb-3.5 text-2xl text-white tablet:text-4xl'>
       Welcome to the app!
     </h1>
     <p
