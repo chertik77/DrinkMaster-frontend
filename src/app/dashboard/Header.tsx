@@ -1,10 +1,14 @@
 'use client'
 
-export const Header = () => {
-  // const { data } = useQuery({
-  //   queryKey: ['profile'],
-  //   queryFn: () => axiosInstance.get('/user/profile')
-  // })
+import { useQuery } from '@tanstack/react-query'
 
-  return <div>hello</div>
+import { userService } from '@/services/user.service'
+
+export const Header = () => {
+  const { data } = useQuery({
+    queryKey: ['profile'],
+    queryFn: userService.getProfile
+  })
+
+  return <div>{data?.name}</div>
 }
