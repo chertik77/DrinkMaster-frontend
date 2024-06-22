@@ -13,7 +13,7 @@ const DashboardPage = async () => {
 
   await queryClient.prefetchQuery({
     queryKey: ['profile'],
-    queryFn: async () => await axiosInstance.get('/user/profile')
+    queryFn: () => axiosInstance.get('/user/profile')
   })
 
   return (
