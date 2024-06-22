@@ -5,6 +5,8 @@ import { Manrope } from 'next/font/google'
 
 import './globals.css'
 
+import { Toaster } from 'react-hot-toast'
+
 import { Providers } from './providers'
 
 const manrope = Manrope({
@@ -22,7 +24,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang='en'>
       <body className={manrope.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <Toaster position='top-right' />
+        </Providers>
       </body>
     </html>
   )

@@ -3,7 +3,7 @@ import type { UseFormReset } from 'react-hook-form'
 
 import { useRouter } from 'next/navigation'
 import { useMutation } from '@tanstack/react-query'
-import { enqueueSnackbar } from 'notistack'
+import toast from 'react-hot-toast'
 
 import { Pages } from '@/config/pages-url.config'
 import { authService } from '@/services/auth.service'
@@ -19,10 +19,10 @@ export const useSigninUser = (reset: UseFormReset<SigninSchema>) => {
       replace(Pages.Dashboard)
     },
     onError(e) {
+      console.log(e)
       if (e.response?.status === 401) {
-        enqueueSnackbar('Sign-in failed: Invalid email or password.', {
-          variant: 'error'
-        })
+        console.log('ok')
+        toast.error('Sign-in failed: Invalid email or password.')
       }
     }
   })

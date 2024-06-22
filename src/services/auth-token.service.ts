@@ -6,13 +6,13 @@ export enum EnumTokens {
 }
 
 export const authTokenService = {
-  getAccessTokenFromCookies: () => {
+  getAccessTokenFromCookies() {
     const accessToken = Cookies.get(EnumTokens.AccessToken)
 
     return accessToken || null
   },
 
-  saveTokenToCookies: (accessToken: string) => {
+  saveTokenToCookies(accessToken: string) {
     Cookies.set(EnumTokens.AccessToken, accessToken, {
       domain: 'localhost',
       sameSite: 'strict',
