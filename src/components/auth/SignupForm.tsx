@@ -2,14 +2,12 @@
 
 import { FormProvider } from 'react-hook-form'
 
-import { useSignupUser } from '@/hooks/auth/useSignupUser'
-import { useAppForm } from '@/hooks/useAppForm'
+import { useAppForm } from '@/hooks'
+import { useSignupUser } from '@/hooks/auth'
 
-import { SignupSchema } from '@/lib/schemas/auth.schema'
+import { SignupSchema } from '@/lib/schemas'
 
-import { AuthField } from '../ui/AuthField'
-import { BirthDayPicker } from '../ui/date-picker/DatePicker'
-import { PasswordField } from '../ui/PasswordField'
+import { AuthField, BirthDayPicker, PasswordField } from '../ui'
 import { AuthFormNavigation } from './AuthFormNavigation'
 
 export const SignupForm = () => {

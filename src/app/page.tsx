@@ -1,5 +1,5 @@
 import { AuthNavigation } from '@/components/auth/AuthNavigation'
-import { PublicOnlyLayout } from '@/components/PublicOnlyLayout'
+import { PublicOnlyLayout } from '@/components/layouts'
 
 const HomePage = () => (
   <PublicOnlyLayout>

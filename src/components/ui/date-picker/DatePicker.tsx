@@ -1,4 +1,4 @@
-import type { SignupSchema } from '@/lib/schemas/auth.schema'
+import type { SignupSchema } from '@/lib/schemas'
 import type { Control } from 'react-hook-form'
 
 import Image from 'next/image'

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Pages } from '@/config/pages-url.config'
+import { Pages } from '@/config'
 
 export const AuthNavigation = () => (
   <div className='z-10 flex items-center gap-3.5 text-base font-semibold'>

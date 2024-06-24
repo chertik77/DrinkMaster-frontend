@@ -1,4 +1,4 @@
-import type { SigninSchema, SignupSchema } from '@/lib/schemas/auth.schema'
+import type { SigninSchema, SignupSchema } from '@/lib/schemas'
 import type { InputHTMLAttributes } from 'react'
 
 import { ErrorMessage } from '@hookform/error-message'

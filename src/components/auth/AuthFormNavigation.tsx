@@ -2,7 +2,7 @@ import type { AuthParams } from '@/typings/auth.types'
 
 import Link from 'next/link'
 
-import { Pages } from '@/config/pages-url.config'
+import { Pages } from '@/config'
 
 type AuthFormNavigationProps = {
   loading: boolean

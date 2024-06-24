@@ -2,13 +2,12 @@
 
 import { FormProvider } from 'react-hook-form'
 
-import { useSigninUser } from '@/hooks/auth/useSigninUser'
-import { useAppForm } from '@/hooks/useAppForm'
+import { useAppForm } from '@/hooks'
+import { useSigninUser } from '@/hooks/auth'
 
-import { SigninSchema } from '@/lib/schemas/auth.schema'
+import { SigninSchema } from '@/lib/schemas'
 
-import { AuthField } from '../ui/AuthField'
-import { PasswordField } from '../ui/PasswordField'
+import { AuthField, PasswordField } from '../ui'
 import { AuthFormNavigation } from './AuthFormNavigation'
 
 export const SigninForm = () => {

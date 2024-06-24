@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react'
 
-import { PublicOnlyLayout } from '@/components/PublicOnlyLayout'
+import { PublicOnlyLayout } from '@/components/layouts'
 
 const Layout = ({ children }: PropsWithChildren) => (
   <PublicOnlyLayout>{children}</PublicOnlyLayout>

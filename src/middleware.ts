@@ -2,8 +2,8 @@ import type { NextRequest } from 'next/server'
 
 import { NextResponse } from 'next/server'
 
-import { Pages } from './config/pages-url.config'
-import { EnumTokens } from './services/auth-token.service'
+import { Pages } from './config'
+import { EnumTokens } from './services'
 
 export async function middleware({
   url,
