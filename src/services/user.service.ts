@@ -5,7 +5,7 @@ import { ApiEndpoints } from '@/config/api-endpoints.config'
 
 export const userService = {
   async getProfile() {
-    const r = await axiosInstance.get<User>(ApiEndpoints.UserProfile)
+    const r = await axiosInstance.get<User>(ApiEndpoints.UserMe)
 
     return r.data
   }

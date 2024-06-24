@@ -16,7 +16,7 @@ export const AuthFormNavigation = ({
   <div className='w-full space-y-3.5 tablet:w-40xl'>
     <button
       type='submit'
-      className='w-full rounded-[42px] bg-white py-lg text-base font-semibold
+      className='w-full rounded-2xl bg-white py-lg text-base font-semibold
         disabled:cursor-not-allowed disabled:bg-white/70 tablet:text-md'
       disabled={loading}>
       {loading

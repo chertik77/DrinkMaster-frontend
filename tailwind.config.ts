@@ -8,10 +8,16 @@ export default {
       fontFamily: {
         manrope: 'var(--font-manrope)'
       },
+      blur: { '10xl': '100px' },
       spacing: {
         lg: '18px',
+        '2xl': '56px',
         '10xl': '100px',
         '40xl': '400px'
+      },
+      borderRadius: {
+        '2xl': '42px',
+        '20xl': '200px'
       },
       colors: {
         black: '#0A0A11',

@@ -22,10 +22,10 @@ export const AuthField = ({
       <input
         type='text'
         className={cn(
-          `mb-3.5 block h-[56px] w-full rounded-[200px] border border-white/20
-          bg-transparent px-6 text-md text-white autofill:bg-clip-text
-          autofill:text-fill-white focus:border-white/50 focus:outline-none
-          focus:placeholder:text-white tablet:w-40xl`,
+          `mb-3.5 block h-2xl w-full rounded-20xl border border-white/20 bg-transparent
+          px-6 text-md text-white autofill:bg-clip-text autofill:text-fill-white
+          focus:border-white/50 focus:outline-none focus:placeholder:text-white
+          tablet:w-40xl`,
           {
             'border-success/50':
               !formState.errors[inputName] && formState.dirtyFields[inputName],

@@ -20,10 +20,9 @@ export const PasswordField = ({
         <input
           type={showPassword ? 'text' : 'password'}
           className={cn(
-            `mb-10 block h-[56px] w-full rounded-[200px] border border-white/20
-            bg-transparent px-6 text-md text-white autofill:bg-clip-text
-            autofill:text-fill-white focus:border-white/50 focus:outline-none
-            focus:placeholder:text-white`,
+            `mb-10 block h-2xl w-full rounded-20xl border border-white/20 bg-transparent px-6
+            text-md text-white autofill:bg-clip-text autofill:text-fill-white
+            focus:border-white/50 focus:outline-none focus:placeholder:text-white`,
             {
               'border-success/50':
                 !formState.errors.password && formState.dirtyFields.password,

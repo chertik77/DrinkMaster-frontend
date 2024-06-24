@@ -1,11 +1,11 @@
 export enum ApiEndpoints {
   Signup = '/auth/signup',
   Signin = '/auth/signin',
-  Tokens = '/auth/signin/access-token',
+  Tokens = '/auth/tokens',
   Signout = '/auth/signout',
 
   User = '/user',
-  UserProfile = '/user/profile',
+  UserMe = '/user/me',
   UserSubscribtion = '/user/subscribe',
 
   Drinks = '/drinks',

@@ -17,9 +17,8 @@ axiosInstance.interceptors.request.use(config => {
   return config
 })
 
-// createAuthRefreshInterceptor(axiosInstance, async () =>
+// createAuthRefreshInterceptor(axiosInstance, () =>
 //   authService
 //     .getNewTokens()
-//     .then(r => console.log(r))
 //     .catch(() => authTokenService.removeTokenFromCookies())
 // )

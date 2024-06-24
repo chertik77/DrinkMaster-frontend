@@ -1,4 +1,4 @@
-import type { SigninSchema } from '@/lib/schemas/auth.schema'
+import type { SignupSchema } from '@/lib/schemas/auth.schema'
 import type { UseFormReset } from 'react-hook-form'
 
 import { useRouter } from 'next/navigation'
@@ -8,12 +8,12 @@ import toast from 'react-hot-toast'
 import { Pages } from '@/config/pages-url.config'
 import { authService } from '@/services/auth.service'
 
-export const useSigninUser = (reset: UseFormReset<SigninSchema>) => {
+export const useSignupUser = (reset: UseFormReset<SignupSchema>) => {
   const { replace } = useRouter()
 
   const { isPending, mutate } = useMutation({
-    mutationKey: ['signin'],
-    mutationFn: authService.signin,
+    mutationKey: ['signup'],
+    mutationFn: authService.signup,
     onSuccess() {
       replace(Pages.Dashboard)
       reset()
