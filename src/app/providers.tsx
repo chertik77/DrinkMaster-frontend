@@ -1,6 +1,5 @@
 'use client'
 
-import type { AxiosError } from 'axios'
 import type { PropsWithChildren } from 'react'
 
 import {
@@ -23,12 +22,6 @@ const getQueryClient = () => {
     if (!browserQueryClient) browserQueryClient = makeQueryClient()
 
     return browserQueryClient
-  }
-}
-
-declare module '@tanstack/react-query' {
-  interface Register {
-    defaultError: AxiosError
   }
 }
 
