@@ -18,10 +18,14 @@ export const useSigninUser = (reset: UseFormReset<SigninSchema>) => {
       replace(Pages.Dashboard)
       reset()
     },
-    onError(e) {
-      if (e.response?.status === 401) {
-        toast.error('Sign-in failed: Invalid email or password.')
-      }
+    onError: e => {
+      console.log(e)
+
+      return toast.error(
+        e.response?.status === 401
+          ? 'Sign-in failed. The email or password you entered is incorrect. Please try again.'
+          : 'An error occurred during sign-in. Our technical team has been notified. Please try again shortly.'
+      )
     }
   })
 
