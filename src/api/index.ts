@@ -1,6 +1,8 @@
 import axios from 'axios'
+import createAuthRefreshInterceptor from 'axios-auth-refresh'
 
 import { authTokenService } from '@/services/auth-token.service'
+import { authService } from '@/services/auth.service'
 
 export const axiosInstance = axios.create({
   baseURL: process.env.API_BASE_URL,
@@ -20,8 +22,8 @@ axiosInstance.interceptors.request.use(config => {
   return config
 })
 
-// createAuthRefreshInterceptor(axiosInstance, async () =>
-//   authService
-//     .getNewTokens()
-//     .catch(() => authTokenService.removeTokenFromCookies())
-// )
+createAuthRefreshInterceptor(axiosInstance, async () => {
+  authService
+    .getNewTokens()
+    .catch(() => authTokenService.removeTokenFromCookies())
+})
