@@ -15,7 +15,7 @@ export const authTokenService = {
   saveTokenToCookies(accessToken: string) {
     Cookies.set(EnumTokens.AccessToken, accessToken, {
       domain: process.env.DOMAIN,
-      sameSite: 'strict',
+      sameSite: 'none',
       expires: 1
     })
   },
