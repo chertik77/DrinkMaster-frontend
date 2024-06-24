@@ -9,7 +9,7 @@ export const authTokenService = {
   getAccessTokenFromCookies() {
     const accessToken = Cookies.get(EnumTokens.AccessToken)
 
-    return accessToken || null
+    return accessToken
   },
 
   saveTokenToCookies(accessToken: string) {
