@@ -3,6 +3,7 @@ import type { UseFormReset } from 'react-hook-form'
 
 import { useRouter } from 'next/navigation'
 import { useMutation } from '@tanstack/react-query'
+import toast from 'react-hot-toast'
 
 import { Pages } from '@/config/pages-url.config'
 import { authService } from '@/services/auth.service'
@@ -16,12 +17,14 @@ export const useSignupUser = (reset: UseFormReset<SignupSchema>) => {
     onSuccess() {
       replace(Pages.Dashboard)
       reset()
+    },
+    onError(e) {
+      toast.error(
+        e.response?.status === 409
+          ? 'Another user is already registered with the provided email address. Please use a different email.'
+          : 'An error occurred during sign-up. Our technical team has been notified. Please try again shortly.'
+      )
     }
-    // onError(e) {
-    //   if (e.response?.status === 401) {
-    //     toast.error('Sign-in failed: Invalid email or password.')
-    //   }
-    // }
   })
 
   return { isPending, mutate }

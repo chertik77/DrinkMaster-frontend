@@ -26,7 +26,16 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className={manrope.className}>
         <Providers>
           {children}
-          <Toaster position='top-right' />
+          <Toaster
+            position='top-right'
+            toastOptions={{
+              style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff'
+              }
+            }}
+          />
         </Providers>
       </body>
     </html>

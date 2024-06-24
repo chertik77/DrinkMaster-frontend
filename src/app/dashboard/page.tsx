@@ -13,7 +13,7 @@ const DashboardPage = async () => {
 
   await queryClient.prefetchQuery({
     queryKey: ['profile'],
-    queryFn: () => userService.getProfile()
+    queryFn: userService.getProfile
   })
 
   return (

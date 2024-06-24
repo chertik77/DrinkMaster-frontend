@@ -13,19 +13,14 @@ export const authService = {
     if (r.data.accessToken) {
       authTokenService.saveTokenToCookies(r.data.accessToken)
     }
-
-    return r.data
   },
 
   async signin(data: SigninSchema) {
     const r = await axiosInstance.post<AuthResponse>(ApiEndpoints.Signin, data)
 
-    console.log(r)
     if (r.data.accessToken) {
       authTokenService.saveTokenToCookies(r.data.accessToken)
     }
-
-    return r.data
   },
 
   async getNewTokens() {
@@ -34,8 +29,6 @@ export const authService = {
     if (r.data.accessToken) {
       authTokenService.saveTokenToCookies(r.data.accessToken)
     }
-
-    return r
   },
 
   async signout() {
