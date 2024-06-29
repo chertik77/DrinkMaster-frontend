@@ -6,7 +6,7 @@ import { userService } from '@/services/user.service'
 
 export const Header = () => {
   const { data } = useQuery({
-    queryKey: ['profile'],
+    queryKey: ['me'],
     queryFn: userService.getProfile
   })
 
