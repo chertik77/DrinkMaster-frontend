@@ -10,5 +10,10 @@ export const Header = () => {
     queryFn: userService.getProfile
   })
 
-  return <div>{data?.name}</div>
+  return (
+    <div>
+      {data?.name}
+      {data?.email}
+    </div>
+  )
 }
