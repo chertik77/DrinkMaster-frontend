@@ -1,7 +1,7 @@
 import axios from 'axios'
 import createAuthRefreshInterceptor from 'axios-auth-refresh'
 
-import { authTokenService } from '@/services/auth-token.service'
+import { authTokenService, EnumTokens } from '@/services/auth-token.service'
 import { authService } from '@/services/auth.service'
 
 export const axiosInstance = axios.create({
@@ -9,11 +9,18 @@ export const axiosInstance = axios.create({
   withCredentials: true
 })
 
-axiosInstance.interceptors.request.use(config => {
-  const token = authTokenService.getAccessTokenFromCookies()
+const isServer = typeof window === 'undefined'
 
-  if (config?.headers && token) {
-    config.headers.Authorization = `Bearer ${token}`
+axiosInstance.interceptors.request.use(async config => {
+  if (isServer) {
+    const { cookies } = await import('next/headers'),
+      token = cookies().get(EnumTokens.AccessToken)?.value
+
+    if (token) config.headers.Authorization = `Bearer ${token}`
+  } else {
+    const token = authTokenService.getAccessTokenFromCookies()
+
+    if (token) config.headers.Authorization = `Bearer ${token}`
   }
 
   return config
